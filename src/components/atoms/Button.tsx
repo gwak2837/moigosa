@@ -24,17 +24,17 @@ export const PrimaryButton = styled(StyledButton)`
   border: 1px solid ${PRIMARY_BACKGROUND_COLOR};
   color: ${BASIC_TEXT_COLOR};
 
-  :focus {
-    background: ${PRIMARY_BACKGROUND_COLOR};
-    border-color: ${PRIMARY_BACKGROUND_COLOR};
-    color: ${BASIC_TEXT_COLOR};
-  }
-
   :active,
   :hover {
     background: #fff;
     border-color: ${PRIMARY_TEXT_COLOR};
     color: ${PRIMARY_TEXT_COLOR};
+  }
+
+  :focus {
+    background: ${PRIMARY_BACKGROUND_COLOR};
+    border-color: ${PRIMARY_BACKGROUND_COLOR};
+    color: ${BASIC_TEXT_COLOR};
   }
 `
 
@@ -43,17 +43,17 @@ export const SecondaryButton = styled(StyledButton)`
   border: 1px solid ${SECONDARY_BACKGROUND_COLOR};
   color: ${BASIC_TEXT_COLOR};
 
-  :focus {
-    background: ${SECONDARY_BACKGROUND_COLOR};
-    border-color: ${SECONDARY_BACKGROUND_COLOR};
-    color: ${BASIC_TEXT_COLOR};
-  }
-
   :active,
   :hover {
     background: #fff;
     border-color: ${SECONDARY_TEXT_COLOR};
     color: ${SECONDARY_TEXT_COLOR};
+  }
+
+  :focus {
+    background: ${SECONDARY_BACKGROUND_COLOR};
+    border-color: ${SECONDARY_BACKGROUND_COLOR};
+    color: ${BASIC_TEXT_COLOR};
   }
 `
 

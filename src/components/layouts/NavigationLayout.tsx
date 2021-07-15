@@ -40,7 +40,7 @@ function NavigationLayout({ children }: Props) {
     <>
       <FlexContainerPadding>
         <ClientSideLink href="/">
-          <Image src="/icon-512.webp" alt="/favicon.ico" width="40" height="40" priority={true} />
+          <Image src="/favicon.ico" alt="/favicon.ico" width="40" height="40" priority={true} />
         </ClientSideLink>
         {data ? (
           data.name ? (
