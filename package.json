@@ -1,8 +1,8 @@
 {
-  "name": "moigosa-frontend",
+  "name": "moigosa",
   "version": "0.1.0",
   "description": "수능 모의고사 온라인 기출문제 사이트",
-  "repository": "https://github.com/rmfpdlxmtidl/moigosa-frontend.git",
+  "repository": "https://github.com/rmfpdlxmtidl/moigosa.git",
   "author": "amazon-maratang-party <gwak2837@kakao.com>",
   "license": "GPL-3.0-only",
   "private": false,
