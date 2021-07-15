@@ -5,11 +5,19 @@
 ### 개발 환경
 
 - macOS 11.2
-- Git 2.31
-- Node LTS
-- Yarn 1.22
-- Visual Studio Code 1.57
+- [Git](https://git-scm.com/downloads) 2.31
+- [Node](https://nodejs.org/ko/download/) LTS
+- [Yarn](https://yarnpkg.com/getting-started/install#about-global-installs) 1.22
+- [Visual Studio Code](https://code.visualstudio.com/Download) 1.57
 - Chrome 89.0, Safari 14.0, Whale 2.9, Firefox 87.0
+
+```bash
+> git --version
+> node --version
+> yarn --version
+```
+
+위 명령어를 통해 필요한 모든 프로그램이 설치되어 있는지 확인합니다.
 
 ### 프로젝트 다운로드
 
