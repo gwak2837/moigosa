@@ -88,35 +88,35 @@ const correctAnswers: CorrectAnswer[] = [
   },
   {
     questionId: '21',
-    correctAnswer: 4,
+    correctAnswer: 1,
   },
   {
     questionId: '22',
-    correctAnswer: 3,
+    correctAnswer: 5,
   },
   {
     questionId: '23',
-    correctAnswer: 2,
+    correctAnswer: 1,
   },
   {
     questionId: '24',
-    correctAnswer: 4,
+    correctAnswer: 1,
   },
   {
     questionId: '25',
-    correctAnswer: 3,
+    correctAnswer: 5,
   },
   {
     questionId: '26',
-    correctAnswer: 2,
+    correctAnswer: 1,
   },
   {
     questionId: '27',
-    correctAnswer: 4,
+    correctAnswer: 2,
   },
   {
     questionId: '28',
-    correctAnswer: 3,
+    correctAnswer: 5,
   },
   {
     questionId: '29',
@@ -124,7 +124,7 @@ const correctAnswers: CorrectAnswer[] = [
   },
   {
     questionId: '30',
-    correctAnswer: 4,
+    correctAnswer: 5,
   },
   {
     questionId: '31',
