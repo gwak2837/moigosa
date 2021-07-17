@@ -48,15 +48,15 @@ const correctAnswers: CorrectAnswer[] = [
   },
   {
     questionId: '11',
-    correctAnswer: 2,
+    correctAnswer: 1,
   },
   {
     questionId: '12',
-    correctAnswer: 4,
+    correctAnswer: 1,
   },
   {
     questionId: '13',
-    correctAnswer: 3,
+    correctAnswer: 1,
   },
   {
     questionId: '14',
@@ -64,27 +64,27 @@ const correctAnswers: CorrectAnswer[] = [
   },
   {
     questionId: '15',
-    correctAnswer: 4,
+    correctAnswer: 2,
   },
   {
     questionId: '16',
-    correctAnswer: 3,
+    correctAnswer: 5,
   },
   {
     questionId: '17',
-    correctAnswer: 2,
-  },
-  {
-    questionId: '18',
     correctAnswer: 4,
   },
   {
+    questionId: '18',
+    correctAnswer: 1,
+  },
+  {
     questionId: '19',
-    correctAnswer: 3,
+    correctAnswer: 5,
   },
   {
     questionId: '20',
-    correctAnswer: 2,
+    correctAnswer: 4,
   },
   {
     questionId: '21',
