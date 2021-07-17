@@ -50,7 +50,7 @@ function TestPage() {
         setSize(size + 1)
       }
     } else if (questionNumber === testResponse.data.questionIds.length) {
-      router.push('result')
+      router.push(`/tests/${name}/result`)
     }
   }
 
@@ -65,7 +65,10 @@ function TestPage() {
       {data && data[questionIndex] ? (
         <>
           <button onClick={goPreviousQuestion}>이전</button>
-          <button onClick={goNextQuestion}>다음</button>
+          <button onClick={goNextQuestion}>
+            {questionNumber === testResponse.data.questionIds.length ? '제출' : '다음'}
+          </button>
+
           <Question
             answer={answers[questionIndex].answer}
             setAnswer={setAnswer}
