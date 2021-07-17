@@ -75,6 +75,20 @@ const questions: Question[] = [
       { id: '5', content: '크리스마스 행사 일정을 문의하려고' },
     ],
   },
+  {
+    id: '5',
+    title: '다음 글에 드러난 ‘I’의 심경 변화로 가장 적절한 것은?',
+    contents: [
+      'Once again, I had lost the piano contest to my friend. When I learned that Linda had won, I was deeply troubled and unhappy. My body was shaking with uneasiness. My heart beat quickly and my face became reddish. I had to run out of the concert hall to settle down. Sitting on the stairs alone, I recalled what my teacher had said. “Life is about winning, not necessarily about winning against others but winning at being you. And the way to win is to figure out who you are and do your best.” He was absolutely right. I had no reason to oppose my friend. Instead, I should focus on myself and my own improvement. I breathed out slowly. My hands were steady now. At last, my mind was at peace.',
+    ],
+    choices: [
+      { id: '1', content: 'grateful → sorrowful' },
+      { id: '2', content: 'upset → calm' },
+      { id: '3', content: 'envious → doubtful' },
+      { id: '4', content: 'surprised → disappointed' },
+      { id: '5', content: 'bored → relieved' },
+    ],
+  },
 ]
 
 export type Response = Question | { message: string }
