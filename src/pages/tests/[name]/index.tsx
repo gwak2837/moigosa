@@ -1,21 +1,20 @@
 import { useRouter } from 'next/router'
-import { useRef, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
 import PageHead from 'src/components/layouts/PageHead'
 import { fetcher } from 'src/utils/commons'
 import Question from 'src/components/Question'
 import useSWR, { useSWRInfinite } from 'swr'
-
-export type UserAnswers = { questionId: string; answer: number | null }[]
+import { GlobalContext } from 'src/pages/_app'
 
 const description = '수능 모의고사를 풀어볼 수 있어요'
 
 function TestPage() {
+  const { answers, setAnswers } = useContext(GlobalContext)
+
   const router = useRouter()
   const name = (router.query.name ?? '') as string
   const nameWithSpace = name.replace(/-/g, ' ')
   const title = `수능 모의고사 - ${nameWithSpace}`
-
-  const [answers, setAnswers] = useState<UserAnswers>([])
 
   const wasTestFetched = useRef(false)
 
@@ -50,6 +49,8 @@ function TestPage() {
       if (questionNumber === size) {
         setSize(size + 1)
       }
+    } else if (questionNumber === testResponse.data.questionIds.length) {
+      router.push('result')
     }
   }
 
@@ -63,8 +64,8 @@ function TestPage() {
     <PageHead title={title} description={description}>
       {data && data[questionIndex] ? (
         <>
-          <button onClick={goPreviousQuestion}>-1</button>
-          <button onClick={goNextQuestion}>+1</button>
+          <button onClick={goPreviousQuestion}>이전</button>
+          <button onClick={goNextQuestion}>다음</button>
           <Question
             answer={answers[questionIndex].answer}
             setAnswer={setAnswer}
