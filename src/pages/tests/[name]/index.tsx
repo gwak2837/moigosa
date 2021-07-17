@@ -32,10 +32,12 @@ function TestPage() {
   function getKey(pageIndex: number) {
     if (!testResponse.data || testResponse.error) return null
 
+    console.log(pageIndex)
+
     return `/api/questions/${testResponse.data.questionIds[pageIndex]}`
   }
 
-  const { data, size, setSize } = useSWRInfinite(getKey, fetcher)
+  const { data, size, setSize } = useSWRInfinite(getKey, fetcher, { initialSize: 2 })
 
   function goPreviousQuestion() {
     if (questionNumber > 1) {
@@ -46,7 +48,7 @@ function TestPage() {
   function goNextQuestion() {
     if (questionNumber < testResponse.data.questionIds.length) {
       setQuestionNumber((prev) => prev + 1)
-      if (questionNumber === size) {
+      if (questionNumber === size - 1) {
         setSize(size + 1)
       }
     } else if (questionNumber === testResponse.data.questionIds.length) {
