@@ -16,15 +16,15 @@ const correctAnswers: CorrectAnswer[] = [
   },
   {
     questionId: '3',
-    correctAnswer: 4,
+    correctAnswer: 2,
   },
   {
     questionId: '4',
-    correctAnswer: 3,
+    correctAnswer: 1,
   },
   {
     questionId: '5',
-    correctAnswer: 2,
+    correctAnswer: 4,
   },
   {
     questionId: '6',
@@ -36,15 +36,15 @@ const correctAnswers: CorrectAnswer[] = [
   },
   {
     questionId: '8',
-    correctAnswer: 2,
+    correctAnswer: 1,
   },
   {
     questionId: '9',
-    correctAnswer: 4,
+    correctAnswer: 5,
   },
   {
     questionId: '10',
-    correctAnswer: 3,
+    correctAnswer: 2,
   },
   {
     questionId: '11',
