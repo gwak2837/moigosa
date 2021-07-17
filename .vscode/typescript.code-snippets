@@ -23,5 +23,22 @@
       ""
     ],
     "description": "type"
+  },
+  "API": {
+    "prefix": "api",
+    "body": [
+      "import type { NextApiRequest, NextApiResponse } from 'next'",
+      "",
+      "export type Response = {",
+      "  $2",
+      "}",
+      "",
+      "function $1(req: NextApiRequest, res: NextApiResponse<Response>) {",
+      "  res.status(200).send('hello world')",
+      "}",
+      "",
+      "export default $1"
+    ],
+    "description": "API"
   }
 }
