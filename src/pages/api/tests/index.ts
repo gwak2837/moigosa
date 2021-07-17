@@ -10,7 +10,7 @@ export const tests: Test[] = [
   {
     id: '1',
     name: '2021 수능 영어',
-    questionIds: ['1', '2', '3'],
+    questionIds: ['4', '5'],
   },
   {
     id: '2',
@@ -21,6 +21,11 @@ export const tests: Test[] = [
     id: '3',
     name: '2019 수능 영어',
     questionIds: ['20', '21', '22', '23', '24', '25', '26'],
+  },
+  {
+    id: '4',
+    name: '2018 수능 영어',
+    questionIds: ['1', '2', '3'],
   },
 ]
 
