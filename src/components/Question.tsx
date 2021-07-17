@@ -2,6 +2,7 @@ import { Radio, Space, RadioChangeEvent } from 'antd'
 import { Fragment } from 'react'
 import { Question as TQuestion } from 'src/pages/api/questions/[id]'
 import styled from 'styled-components'
+import { Padding } from './atoms/Styles'
 
 const MarginOl = styled.ol`
   padding: 1rem 0;
@@ -20,7 +21,7 @@ function Question({ answer, number, question, setAnswer }: Props) {
   }
 
   return (
-    <div>
+    <Padding>
       <h4>
         {number}. {question.title}
       </h4>
@@ -42,7 +43,7 @@ function Question({ answer, number, question, setAnswer }: Props) {
           </Space>
         </Radio.Group>
       </MarginOl>
-    </div>
+    </Padding>
   )
 }
 
