@@ -58,6 +58,23 @@ const questions: Question[] = [
       { id: '5', content: '지도자는 기존의 방식과 새로운 방식을 조화시켜야 한다.' },
     ],
   },
+  {
+    id: '4',
+    title: '다음 글의 목적으로 가장 적절한 것은?',
+    contents: [
+      'Dear Friends,',
+      'Season’s greetings. As some of you already know, we are starting the campus food drive. This is how you participate. You can bring your items for donation to our booths. Our donation booths are located in the lobbies of the campus libraries. Just drop off the items there during usual library hours from December 4 to 23. The donated food should be non-perishable like canned meats and canned fruits. Packaged goods such as jam and peanut butter are also good. We will distribute the food to our neighbors on Christmas Eve. We truly appreciate your help.',
+      'Many blessings,',
+      'Joanna at Campus Food Bank',
+    ],
+    choices: [
+      { id: '1', content: '음식 기부에 참여하는 방법을 안내하려고' },
+      { id: '2', content: '음식 배달 자원봉사 참여에 감사하려고' },
+      { id: '3', content: '도서관 이용 시간 변경을 공지하려고' },
+      { id: '4', content: '음식물 낭비의 심각성을 알려 주려고' },
+      { id: '5', content: '크리스마스 행사 일정을 문의하려고' },
+    ],
+  },
 ]
 
 export type Response = Question | { message: string }
