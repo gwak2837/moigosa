@@ -1,19 +1,12 @@
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import {
-  createContext,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react'
+import { createContext, MutableRefObject, ReactNode, useEffect, useRef } from 'react'
 import { BASIC_TEXT_COLOR, PRIMARY_TEXT_COLOR, TABLET_MIN_WIDTH } from 'src/models/constants'
 import { pageview } from 'src/utils/google-analytics'
 import styled, { createGlobalStyle } from 'styled-components'
 import { ToastContainer, cssTransition } from 'react-toastify'
+import { Test } from './api/tests'
 
 import 'antd/dist/antd.css'
 import 'src/styles/custom-antd.css'
@@ -71,34 +64,15 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-type NullableObject = Record<string, number> | null
+type GlobalContextValues = MutableRefObject<Test[]>
 
-type GlobalContextValues = {
-  answers: NullableObject
-  setAnswers: Dispatch<SetStateAction<NullableObject>>
-}
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+export const GlobalContext = createContext<GlobalContextValues>(undefined!)
 
-export const GlobalContext = createContext<GlobalContextValues>({
-  answers: null,
-  setAnswers: () => null,
-})
+function GlobalProvider({ children }: { children: ReactNode }) {
+  const tests = useRef<Test[]>([])
 
-type GlobalProviderProps = {
-  children: ReactNode
-}
-
-function GlobalProvider({ children }: GlobalProviderProps) {
-  const [answers, setAnswers] = useState<NullableObject>(null)
-
-  const value = useMemo(
-    () => ({
-      answers,
-      setAnswers,
-    }),
-    [answers]
-  )
-
-  return <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>
+  return <GlobalContext.Provider value={tests}>{children}</GlobalContext.Provider>
 }
 
 const MaxWidth = styled.main`
