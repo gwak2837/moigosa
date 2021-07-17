@@ -5,7 +5,7 @@ import { Response } from 'src/pages/api/tests'
 import { fetcher } from 'src/utils/commons'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 
-const description = '모의고사 목록을 확인할 수 있어요.'
+const description = '여러 수능 모의고사를 확인할 수 있어요.'
 
 function TestsPage() {
   const { data, error } = useSwr<Response>('/api/tests', fetcher)
