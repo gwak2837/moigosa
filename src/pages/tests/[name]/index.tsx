@@ -86,50 +86,56 @@ function TestPage() {
   return (
     <PageHead title={title} description={description}>
       {data ? (
-        data[questionIndex] ? (
-          <>
-            <GridContainer>
-              <PrimaryButton disabled={questionNumber === 1} onClick={goPreviousQuestion}>
-                이전
-              </PrimaryButton>
-              <div
-                onClick={toggleShowingTimer}
-                role="button"
-                style={{ textAlign: 'center' }}
-                tabIndex={0}
-              >
-                <NoMarginH2>{nameWithSpace}</NoMarginH2>
-                <div style={{ display: showTimer ? 'block' : 'none' }}>
-                  <Timer
-                    maxTime={600}
-                    onTimeout={() => router.push(`/tests/${name}/timeout?${600}`)}
-                  />
-                </div>
+        <>
+          <GridContainer>
+            <PrimaryButton
+              disabled={questionNumber === 1}
+              loading={!data[questionIndex]}
+              onClick={goPreviousQuestion}
+            >
+              이전
+            </PrimaryButton>
+            <div
+              onClick={toggleShowingTimer}
+              role="button"
+              style={{ textAlign: 'center' }}
+              tabIndex={0}
+            >
+              <NoMarginH2>{nameWithSpace}</NoMarginH2>
+              <div style={{ display: showTimer ? 'block' : 'none' }}>
+                <Timer
+                  maxTime={600}
+                  onTimeout={() => router.push(`/tests/${name}/timeout?${600}`)}
+                />
               </div>
-              <PrimaryButton onClick={goNextQuestion}>
-                {questionNumber === testResponse.data.questionIds.length ? '제출' : '다음'}
-              </PrimaryButton>
-            </GridContainer>
+            </div>
+            <PrimaryButton loading={!data[questionIndex]} onClick={goNextQuestion}>
+              {questionNumber === testResponse.data.questionIds.length ? '제출' : '다음'}
+            </PrimaryButton>
+          </GridContainer>
 
-            <Padding>
-              <Progress
-                format={() => `${questionNumber} / ${totalQuestionCount}`}
-                percent={(questionNumber * 100) / totalQuestionCount}
-                status="normal"
-                strokeColor={gradientBlueGreen}
+          {data[questionIndex] ? (
+            <>
+              <Padding>
+                <Progress
+                  format={() => `${questionNumber} / ${totalQuestionCount}`}
+                  percent={(questionNumber * 100) / totalQuestionCount}
+                  status="normal"
+                  strokeColor={gradientBlueGreen}
+                />
+              </Padding>
+
+              <Question
+                answer={answers[questionIndex].answer}
+                setAnswer={setAnswer}
+                number={questionNumber}
+                question={data[questionIndex]}
               />
-            </Padding>
-
-            <Question
-              answer={answers[questionIndex].answer}
-              setAnswer={setAnswer}
-              number={questionNumber}
-              question={data[questionIndex]}
-            />
-          </>
-        ) : (
-          '다음 문제 불러오는 중...'
-        )
+            </>
+          ) : (
+            '다음 문제 불러오는 중...'
+          )}
+        </>
       ) : error ? (
         '네트워크 요청 오류'
       ) : (
