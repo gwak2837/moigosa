@@ -97,7 +97,7 @@ function TestResultPage() {
 
   console.log(data)
 
-  const percentageScore = 34
+  const score = data?.reduce((acc, cur) => (cur.isCorrect ? acc + 1 : acc), 0) ?? 0
 
   return (
     <PageHead title={title} description={description}>
@@ -109,8 +109,8 @@ function TestResultPage() {
             <>
               <Padding2>
                 <Progress
-                  format={(_) => `${12} / ${data.length}`}
-                  percent={percentageScore}
+                  format={(_) => `${score} / ${data.length}`}
+                  percent={(score * 100) / data.length}
                   status="active"
                   strokeColor={gradientBlueGreen}
                 />
