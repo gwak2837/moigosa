@@ -128,7 +128,7 @@ const correctAnswers: CorrectAnswer[] = [
   },
   {
     questionId: '31',
-    correctAnswer: 3,
+    correctAnswer: 1,
   },
   {
     questionId: '32',
@@ -136,23 +136,23 @@ const correctAnswers: CorrectAnswer[] = [
   },
   {
     questionId: '33',
-    correctAnswer: 4,
-  },
-  {
-    questionId: '34',
-    correctAnswer: 3,
-  },
-  {
-    questionId: '35',
     correctAnswer: 2,
   },
   {
+    questionId: '34',
+    correctAnswer: 1,
+  },
+  {
+    questionId: '35',
+    correctAnswer: 3,
+  },
+  {
     questionId: '36',
-    correctAnswer: 4,
+    correctAnswer: 5,
   },
   {
     questionId: '37',
-    correctAnswer: 3,
+    correctAnswer: 5,
   },
   {
     questionId: '38',
@@ -160,11 +160,11 @@ const correctAnswers: CorrectAnswer[] = [
   },
   {
     questionId: '39',
-    correctAnswer: 4,
+    correctAnswer: 5,
   },
   {
     questionId: '40',
-    correctAnswer: 4,
+    correctAnswer: 2,
   },
 ]
 
