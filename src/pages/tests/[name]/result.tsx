@@ -41,9 +41,6 @@ function TestResultPage() {
     return await response.json()
   })
 
-  console.log(answers)
-  console.log(data, error)
-
   if (answers.length === 0) {
     return (
       <PageHead title={title} description={description}>
