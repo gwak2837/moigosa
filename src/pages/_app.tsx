@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     padding: 0;
-    background-color: #FFDCDC;
+    background-color: #FFE8E0;
     color: ${BASIC_TEXT_COLOR};
     font-family: 'Noto Sans KR', 'Noto Sans', -apple-system, BlinkMacSystemFont,
       'Helvetica Neue', sans-serif;

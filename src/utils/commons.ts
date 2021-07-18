@@ -46,3 +46,11 @@ export async function fetcher(url: string) {
   const res = await fetch(url)
   return await res.json()
 }
+
+export function formatMinuteSecond(second: number) {
+  const minute = Math.floor(second / 60)
+
+  if (minute > 0) return `${minute}분 ${second % 60}초`
+
+  return `${second}초`
+}

@@ -54,7 +54,7 @@ const FlexContainerColumnPadding = styled(FlexContainerColumn)`
   padding: 1rem;
 `
 
-const gradientBlueGreen = {
+export const gradientBlueGreen = {
   '0%': '#108ee9',
   '100%': '#87d068',
 }
@@ -118,7 +118,7 @@ function TestResultPage() {
             <>
               <Padding2>
                 <Progress
-                  format={(_) => `${correctCount} / ${data.length}`}
+                  format={() => `${correctCount} / ${data.length}`}
                   percent={percentageScore}
                   status="active"
                   strokeColor={gradientBlueGreen}

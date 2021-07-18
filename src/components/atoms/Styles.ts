@@ -110,3 +110,7 @@ export const SkeletonText = styled(SkeletonGradient)<{ width?: string; height?: 
   width: ${({ width = '100%' }) => width};
   height: ${({ height = '1rem' }) => height};
 `
+
+export const NoMarginH2 = styled.h2`
+  margin: 0;
+`
