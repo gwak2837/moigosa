@@ -16,6 +16,16 @@ const Padding2 = styled.div`
   padding: 2rem;
 `
 
+const ScoreText = styled.h3`
+  text-align: center;
+  font-size: 4rem;
+`
+
+const GradeText = styled.h3`
+  text-align: center;
+  font-size: 2rem;
+`
+
 const Table = styled.table`
   width: 100%;
 
@@ -54,7 +64,7 @@ function fetchOnlyIfAnswersExist(answers: UserAnswers) {
   return '/api/results'
 }
 
-const description = ''
+const description = '채점 결과를 확인해보세요.'
 
 function TestResultPage() {
   const { answers } = useContext(GlobalContext)
@@ -95,9 +105,8 @@ function TestResultPage() {
     )
   }
 
-  console.log(data)
-
-  const score = data?.reduce((acc, cur) => (cur.isCorrect ? acc + 1 : acc), 0) ?? 0
+  const correctCount = data?.reduce((acc, cur) => (cur.isCorrect ? acc + 1 : acc), 0) ?? 0
+  const percentageScore = Math.round((correctCount * 100) / (data?.length ?? 1))
 
   return (
     <PageHead title={title} description={description}>
@@ -109,12 +118,19 @@ function TestResultPage() {
             <>
               <Padding2>
                 <Progress
-                  format={(_) => `${score} / ${data.length}`}
-                  percent={(score * 100) / data.length}
+                  format={(_) => `${correctCount} / ${data.length}`}
+                  percent={percentageScore}
                   status="active"
                   strokeColor={gradientBlueGreen}
                 />
               </Padding2>
+
+              <ScoreText>{percentageScore}점</ScoreText>
+              <GradeText>
+                {correctCount === data.length ? 1 : Math.ceil(10 - percentageScore / 10)}등급
+              </GradeText>
+              <br />
+
               <Table>
                 <thead>
                   <tr>
