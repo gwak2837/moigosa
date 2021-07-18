@@ -1,3 +1,4 @@
+import { Progress } from 'antd'
 import { useRouter } from 'next/router'
 import { useContext } from 'react'
 import { PrimaryButton } from 'src/components/atoms/Button'
@@ -9,10 +10,44 @@ import { GlobalContext, UserAnswers } from 'src/pages/_app'
 import styled from 'styled-components'
 import useSWR from 'swr'
 import { Response } from 'src/pages/api/results'
+import { PRIMARY_TEXT_COLOR } from 'src/models/constants'
+
+const Padding2 = styled.div`
+  padding: 2rem;
+`
+
+const Table = styled.table`
+  width: 100%;
+
+  th,
+  td {
+    padding: 0.5rem;
+    text-align: center;
+    white-space: nowrap;
+    border: 2px solid ${PRIMARY_TEXT_COLOR};
+  }
+`
+
+const GreyDel = styled.s`
+  color: grey;
+`
+
+const Green = styled.div`
+  color: green;
+`
+
+const Red = styled.div`
+  color: red;
+`
 
 const FlexContainerColumnPadding = styled(FlexContainerColumn)`
   padding: 1rem;
 `
+
+const gradientBlueGreen = {
+  '0%': '#108ee9',
+  '100%': '#87d068',
+}
 
 function fetchOnlyIfAnswersExist(answers: UserAnswers) {
   if (answers.length === 0) return null
@@ -48,7 +83,9 @@ function TestResultPage() {
           <Padding>
             <h2 style={{ textAlign: 'center' }}>결과 없음</h2>
             <br />
-            <p>모의고사를 모두 풀어야 결과를 볼 수 있어요.</p>
+            <p>
+              <b>{nameWithSpace}</b> 문제를 모두 풀어야 결과를 볼 수 있어요.
+            </p>
           </Padding>
           <FlexContainerColumnPadding>
             <PrimaryButton onClick={goToTestsPage}>다른 테스트 보기</PrimaryButton>
@@ -58,24 +95,59 @@ function TestResultPage() {
     )
   }
 
+  console.log(data)
+
+  const percentageScore = 34
+
   return (
     <PageHead title={title} description={description}>
       <NavigationLayout>
-        <h2 style={{ textAlign: 'center' }}>모의고사 결과</h2>
-        <br />
-        <ol>
-          {data
-            ? data.map((answer, i) => (
-                <li key={i}>
-                  문제 {i + 1} | {answer.answer} | {answer.correctAnswer} |{' '}
-                  {answer.isCorrect ? 'O' : 'X'}
-                </li>
-              ))
-            : error
-            ? '오류'
-            : '모의고사 채점 중..'}
-        </ol>
-        <br />
+        <Padding>
+          <h2 style={{ textAlign: 'center' }}>{nameWithSpace} 채점 결과</h2>
+
+          {data ? (
+            <>
+              <Padding2>
+                <Progress
+                  format={(_) => `${12} / ${data.length}`}
+                  percent={percentageScore}
+                  status="active"
+                  strokeColor={gradientBlueGreen}
+                />
+              </Padding2>
+              <Table>
+                <thead>
+                  <tr>
+                    <th>문제 번호</th>
+                    <th>문제 정답</th>
+                    <th>응답</th>
+                    <th>결과</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((answer, i) => (
+                    <tr key={i}>
+                      <td>{i + 1}</td>
+                      <td>{answer.correctAnswer}</td>
+                      <td>
+                        {answer.correctAnswer === answer.answer ? (
+                          `${answer.answer}`
+                        ) : (
+                          <GreyDel>{answer.answer}</GreyDel>
+                        )}
+                      </td>
+                      <td>{answer.isCorrect ? <Green>O</Green> : <Red>X</Red>}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </>
+          ) : error ? (
+            '네트워크 요청 오류'
+          ) : (
+            '모의고사 채점 중..'
+          )}
+        </Padding>
         <FlexContainerColumnPadding>
           <PrimaryButton onClick={goToTestPage}>다시 풀기</PrimaryButton>
           <PrimaryButton onClick={goToTestsPage}>다른 테스트 보기</PrimaryButton>
