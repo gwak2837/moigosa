@@ -39,7 +39,7 @@ function TimeoutPage() {
   return (
     <PageHead title={title} description={description}>
       <CenterPaddingH1>
-        {formatMinuteSecond(maxSecond)} 시간초과입니다. 다시 하실까요?
+        {formatMinuteSecond(+maxSecond)} 시간초과입니다. 다시 하실까요?
       </CenterPaddingH1>
       <FlexContainerColumnPadding>
         <PrimaryButton onClick={goToTestPage}>다시 하기</PrimaryButton>
