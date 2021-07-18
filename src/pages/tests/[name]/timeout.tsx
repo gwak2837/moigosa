@@ -3,6 +3,7 @@ import { PrimaryButton } from 'src/components/atoms/Button'
 import { FlexContainerColumn } from 'src/components/atoms/Styles'
 import PageHead from 'src/components/layouts/PageHead'
 import useGoToPage from 'src/hooks/useGoToPage'
+import useQueryString from 'src/hooks/useQueryString'
 import { formatMinuteSecond } from 'src/utils/commons'
 import styled from 'styled-components'
 
@@ -34,7 +35,7 @@ function TimeoutPage() {
   const goToTestsPage = useGoToPage('/tests')
   const goToHomePage = useGoToPage('/')
 
-  const maxSecond = window.location.search.substr(1)
+  const maxSecond = useQueryString()
 
   return (
     <PageHead title={title} description={description}>
