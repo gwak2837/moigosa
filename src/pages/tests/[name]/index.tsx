@@ -5,6 +5,7 @@ import { fetcher } from 'src/utils/commons'
 import Question from 'src/components/Question'
 import useSWR, { useSWRInfinite } from 'swr'
 import { GlobalContext } from 'src/pages/_app'
+import { toast } from 'react-toastify'
 
 const description = '수능 모의고사를 풀어볼 수 있어요'
 
@@ -32,8 +33,6 @@ function TestPage() {
   function getKey(pageIndex: number) {
     if (!testResponse.data || testResponse.error) return null
 
-    console.log(pageIndex)
-
     return `/api/questions/${testResponse.data.questionIds[pageIndex]}`
   }
 
@@ -52,7 +51,11 @@ function TestPage() {
         setSize(size + 1)
       }
     } else if (questionNumber === testResponse.data.questionIds.length) {
-      router.push(`/tests/${name}/result`)
+      if (answers.every((answer) => answer.answer !== null)) {
+        router.push(`/tests/${name}/result`)
+      } else {
+        toast.warn('문제를 모두 풀어주세요')
+      }
     }
   }
 

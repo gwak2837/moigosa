@@ -67,7 +67,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-type UserAnswers = { questionId: string; answer: number | null }[]
+export type UserAnswers = { questionId: string; answer: number | null }[]
 
 type GlobalContextValues = {
   answers: UserAnswers
