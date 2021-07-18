@@ -189,7 +189,7 @@ const questions: Question[] = [
       { id: '2', content: 'bored → comforted' },
       { id: '3', content: 'calm → annoyed' },
       { id: '4', content: 'relieved → frightened' },
-      { id: '5', content: '⑤ pleased → upset' },
+      { id: '5', content: 'pleased → upset' },
     ],
   },
   {
