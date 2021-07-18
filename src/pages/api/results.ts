@@ -88,11 +88,11 @@ const correctAnswers: CorrectAnswer[] = [
   },
   {
     questionId: '21',
-    correctAnswer: 1,
+    correctAnswer: 3,
   },
   {
     questionId: '22',
-    correctAnswer: 5,
+    correctAnswer: 1,
   },
   {
     questionId: '23',
