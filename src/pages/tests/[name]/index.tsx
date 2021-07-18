@@ -36,7 +36,7 @@ function TestPage() {
     return `/api/questions/${testResponse.data.questionIds[pageIndex]}`
   }
 
-  const { data, size, setSize } = useSWRInfinite(getKey, fetcher, { initialSize: 2 })
+  const { data, error, size, setSize } = useSWRInfinite(getKey, fetcher, { initialSize: 2 })
 
   function goPreviousQuestion() {
     if (questionNumber > 1) {
@@ -67,22 +67,28 @@ function TestPage() {
 
   return (
     <PageHead title={title} description={description}>
-      {data && data[questionIndex] ? (
-        <>
-          <button onClick={goPreviousQuestion}>이전</button>
-          <button onClick={goNextQuestion}>
-            {questionNumber === testResponse.data.questionIds.length ? '제출' : '다음'}
-          </button>
+      {data ? (
+        data[questionIndex] ? (
+          <>
+            <button onClick={goPreviousQuestion}>이전</button>
+            <button onClick={goNextQuestion}>
+              {questionNumber === testResponse.data.questionIds.length ? '제출' : '다음'}
+            </button>
 
-          <Question
-            answer={answers[questionIndex].answer}
-            setAnswer={setAnswer}
-            number={questionNumber}
-            question={data[questionIndex]}
-          />
-        </>
+            <Question
+              answer={answers[questionIndex].answer}
+              setAnswer={setAnswer}
+              number={questionNumber}
+              question={data[questionIndex]}
+            />
+          </>
+        ) : (
+          '다음 문제 불러오는 중...'
+        )
+      ) : error ? (
+        '네트워크 요청 오류'
       ) : (
-        'loading...'
+        '문제 불러오는 중...'
       )}
     </PageHead>
   )

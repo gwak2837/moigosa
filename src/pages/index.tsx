@@ -2,11 +2,9 @@ import styled from 'styled-components'
 import NavigationLayout from '../components/layouts/NavigationLayout'
 import PageHead from '../components/layouts/PageHead'
 import { FlexContainerAlignCenter, focusInExpandFwd } from 'src/components/atoms/Styles'
-import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { SecondaryButton } from 'src/components/atoms/Button'
 import Footer from 'src/components/Footer'
 import useGoToPage from 'src/hooks/useGoToPage'
-import Image from 'next/image'
 
 const LocationText = styled.h3`
   margin: 1rem;

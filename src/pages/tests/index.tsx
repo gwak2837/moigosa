@@ -13,13 +13,17 @@ function TestsPage() {
   return (
     <PageHead title="수능 모의고사 - 모의고사 목록" description={description}>
       <NavigationLayout>
-        {data?.map((test) => (
-          <div key={test.id}>
-            <ClientSideLink href={`/tests/${test.name.replace(/ /g, '-')}`}>
-              {test.name}
-            </ClientSideLink>
-          </div>
-        ))}
+        {data
+          ? data.map((test) => (
+              <div key={test.id}>
+                <ClientSideLink href={`/tests/${test.name.replace(/ /g, '-')}`}>
+                  {test.name}
+                </ClientSideLink>
+              </div>
+            ))
+          : error
+          ? '네트워크 요청 오류'
+          : '모의고사 목록 불러오는 중...'}
       </NavigationLayout>
     </PageHead>
   )
