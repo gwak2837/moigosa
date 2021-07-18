@@ -16,11 +16,11 @@ const PaddingCenterTd = styled.td`
   padding: 0.5rem;
 `
 
-const description = ''
+const description = '아마존 마라탕 파티의 구성원을 확인해보세요.'
 
 function AboutPage() {
   return (
-    <PageHead title="심리테스트 - 팀 소개" description={description}>
+    <PageHead title="수능 테스트 - 팀 소개" description={description}>
       <NavigationLayout>
         <H2>팀 소개</H2>
 
