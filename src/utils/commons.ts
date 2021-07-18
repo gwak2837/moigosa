@@ -50,7 +50,15 @@ export async function fetcher(url: string) {
 export function formatMinuteSecond(second: number) {
   const minute = Math.floor(second / 60)
 
-  if (minute > 0) return `${minute}분 ${second % 60}초`
+  if (minute > 0) {
+    const secondRemainder = second % 60
+
+    if (secondRemainder === 0) {
+      return `${minute}분`
+    }
+
+    return `${minute}분 ${secondRemainder}초`
+  }
 
   return `${second}초`
 }
