@@ -127,7 +127,12 @@ function TestResultPage() {
 
               <ScoreText>{percentageScore}점</ScoreText>
               <GradeText>
-                {correctCount === data.length ? 1 : Math.ceil(10 - percentageScore / 10)}등급
+                {correctCount === data.length
+                  ? 1
+                  : correctCount === 0
+                  ? 9
+                  : Math.ceil(10 - percentageScore / 10)}
+                등급
               </GradeText>
               <br />
 
