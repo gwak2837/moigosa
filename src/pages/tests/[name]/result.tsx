@@ -118,7 +118,7 @@ function TestResultPage() {
             <>
               <Padding2>
                 <Progress
-                  format={() => `${correctCount} / ${data.length}`}
+                  format={() => `${correctCount}/${data.length}`}
                   percent={percentageScore}
                   status="active"
                   strokeColor={gradientBlueGreen}
@@ -129,7 +129,7 @@ function TestResultPage() {
               <GradeText>
                 {correctCount === data.length
                   ? 1
-                  : correctCount === 0
+                  : percentageScore < 20
                   ? 9
                   : Math.ceil(10 - percentageScore / 10)}
                 등급

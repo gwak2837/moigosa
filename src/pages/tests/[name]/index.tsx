@@ -118,7 +118,7 @@ function TestPage() {
             <>
               <Padding>
                 <Progress
-                  format={() => `${questionNumber} / ${totalQuestionCount}`}
+                  format={() => `${questionNumber}/${totalQuestionCount}`}
                   percent={(questionNumber * 100) / totalQuestionCount}
                   status="normal"
                   strokeColor={gradientBlueGreen}
